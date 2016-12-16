@@ -10,8 +10,7 @@ from nose_parameterized import parameterized
 
 class TestFavoritesProduct(unittest.TestCase):
 
-    # @pytest.mark.parametrize('param_name', ['click_on_link', 'click_on_star', 'click_on_link_in_block'])
-    @parameterized.expand(['click_comparison_link_in_block'])
+    @parameterized.expand(['click_comparison_star_on_foto', 'click_comparison_link', 'click_comparison_link_in_block'])
     def test_add_to_favotites_from_product_cart(self, param_name):
         driver = webdriver.Chrome()
         driver.maximize_window()
@@ -31,5 +30,4 @@ class TestFavoritesProduct(unittest.TestCase):
             driver.save_screenshot('screenshots/%s' % (datetime.datetime.now()))
             print driver.current_url
             print "ERROR in test %s %s!" % (param_name, error)
-            # assert False
         driver.close()
